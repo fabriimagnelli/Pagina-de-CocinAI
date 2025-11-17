@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $usuario = "root";
-$clave = "";
+$clave = "Matias";
 $base_datos = "recetas_cocina";
 
 // Crear conexión

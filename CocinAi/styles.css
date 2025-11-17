@@ -1,0 +1,522 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root{
+  --bg: #f7fafc;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --accent: #ff6b35;
+  --accent-600: #ff5724;
+  --radius: 12px;
+  --glass: rgba(255,255,255,0.6);
+  --shadow: 0 6px 20px rgba(15,23,36,0.06);
+  --shadow-sm: 0 4px 12px rgba(15,23,36,0.05);
+  --max-width: 1100px;
+}
+
+/* Reset mínimo */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--bg) 0%, #ffffff 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  font-size:15px;
+}
+
+/* Contenedor */
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:20px;
+}
+
+/* Header */
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:12px 0;
+}
+header a.logo{
+  font-weight:800;
+  font-size:20px;
+  color:var(--text);
+  text-decoration:none;
+}
+.top-links{display:flex; align-items:center; gap:18px;}
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  padding:8px 10px;
+  border-radius:8px;
+  transition:all .18s ease;
+  font-weight:600;
+}
+nav a:hover{ background: rgba(0,0,0,0.03); color:var(--text) }
+
+/* CTA botón */
+a.cta, .btn{
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-600) 100%);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+  display:inline-block;
+  box-shadow: 0 8px 20px rgba(255,107,53,0.14);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+a.cta:hover, .btn:hover{ transform:translateY(-3px); box-shadow: 0 12px 28px rgba(255,107,53,0.15) }
+
+/* HERO */
+.hero{
+  display:flex;
+  gap:28px;
+  align-items:center;
+  padding:28px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.hero .info h1{ margin:0 0 8px; font-size:28px; line-height:1.15; }
+.hero .info p{ margin:0 0 12px; color:var(--muted) }
+
+/* Grid y tarjetas */
+.grid{ 
+  display:flex; 
+  flex-wrap:wrap; 
+  gap:18px; 
+  margin-top:12px; 
+  align-items:center;
+  align-content: center;
+}
+.card{
+  background:var(--card);
+  border-radius:12px;
+  overflow:hidden;
+  width:240px;
+  box-shadow:var(--shadow-sm);
+  transition:transform .14s ease, box-shadow .14s ease;
+  display:flex;
+  flex-direction:column;
+}
+.card:hover{ transform:translateY(-6px); box-shadow: 0 18px 36px rgba(15,23,36,0.08) }
+.card img{ width:100%; height:150px; object-fit:cover; display:block; }
+.card .body{ padding:12px; flex:1; display:flex; flex-direction:column; }
+.card h4{ margin:0 0 8px; font-size:16px; }
+.card p{ margin:0; color:var(--muted); font-size:13px; }
+
+/* Meta pequeño */
+.meta{ font-size:12px; color:var(--muted); margin-bottom:6px }
+
+/* Categories chips */
+.categories{ display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+.cat{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:linear-gradient(180deg, #fff, #fbfbfb);
+  border:1px solid #f1f5f9;
+  color:var(--text);
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+}
+
+/* Forms */
+form input[type="text"], form input[type="number"], form textarea, form select{
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #e6e9ef;
+  margin:6px 0 12px;
+  font-size:14px;
+  background:#fff;
+  outline:none;
+  transition:box-shadow .12s ease, border-color .12s ease;
+}
+form input:focus, form textarea:focus, form select:focus{
+  box-shadow:0 6px 18px rgba(34, 197, 94, 0.06);
+  border-color:rgba(34,197,94,0.6);
+}
+
+/* Profile grid reuse */
+.card .card-message, .card-message{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+
+/* Recipe detail */
+.hero-img{ width:100%; height:420px; object-fit:cover; border-radius:8px; display:block; margin-bottom:12px; }
+.card.article{ padding:18px; }
+.grid.cols-2{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.instructions{ background:#fafafa; padding:12px; border-radius:8px; border:1px solid #f3f4f6; }
+
+/* Small helper */
+.badge{
+  display:inline-block; padding:6px 10px; border-radius:999px; background:#fff; border:1px solid #eee; font-weight:700; font-size:13px;
+}
+
+/* Sections special (diet) */
+.section h3{ margin:8px 0 10px; font-size:18px; color:var(--text) }
+
+/* Footer */
+.footer{ margin-top:28px; padding:24px 0; color:var(--muted); text-align:center }
+
+/* --- Estilos para sección de perfil --- */
+.profile-header {
+  display:flex;
+  gap:18px;
+  align-items:center;
+  padding:18px;
+  background:linear-gradient(180deg, #fff, #fbfbfb);
+  border-radius:12px;
+  box-shadow:var(--shadow-sm);
+  margin-bottom:18px;
+}
+.profile-avatar{
+  width:96px;
+  height:96px;
+  border-radius:18px;
+  overflow:hidden;
+  flex-shrink:0;
+  border:2px solid #fff;
+  box-shadow:0 8px 20px rgba(15,23,36,0.06);
+}
+.profile-avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+.profile-info{ flex:1; }
+.profile-info h2{ margin:0 0 6px; font-size:20px; }
+.profile-info p{ margin:0; color:var(--muted); font-size:14px; }
+.profile-actions{ display:flex; gap:8px; margin-top:10px; }
+.profile-stats{
+  display:flex;
+  gap:12px;
+  margin-top:12px;
+  align-items:center;
+  font-size:13px;
+  color:var(--muted);
+}
+.profile-stat{
+  background:linear-gradient(180deg,#fff,#fafafa);
+  padding:8px 12px;
+  border-radius:10px;
+  border:1px solid #f1f5f9;
+  font-weight:700;
+  color:var(--text);
+}
+
+/* Grid de recetas en perfil */
+.profile-recipes {
+  margin-top:16px;
+}
+.profile-recipes .grid{
+  gap:14px;
+}
+.profile-card{
+  width:220px;
+  border-radius:12px;
+  overflow:hidden;
+  background:var(--card);
+  box-shadow:var(--shadow-sm);
+  transition:transform .12s ease;
+}
+.profile-card:hover{ transform:translateY(-6px); }
+
+/* Botones pequeños */
+.btn-sm{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border-radius:8px;
+  background:#fff;
+  border:1px solid #eef2f6;
+  color:var(--muted);
+  font-weight:700;
+  text-decoration:none;
+}
+.btn-sm:hover{ color:var(--text) }
+
+/* --- Estilos para sección subir/editar receta --- */
+.form-card{
+  background:var(--card);
+  padding:18px;
+  border-radius:12px;
+  box-shadow:var(--shadow-sm);
+}
+.form-grid{
+  display:grid;
+  grid-template-columns: 1fr 340px;
+  gap:18px;
+}
+@media (max-width:980px){
+  .form-grid{ grid-template-columns: 1fr; }
+}
+.form-field{ margin-bottom:10px; }
+.form-field label{ display:block; font-weight:700; font-size:13px; margin-bottom:6px; color:var(--muted) }
+.form-field input[type="file"]{
+  background:linear-gradient(180deg,#fbfbfb,#fff);
+  padding:10px;
+  border-radius:8px;
+  border:1px dashed #e6e9ef;
+  cursor:pointer;
+}
+.image-preview{
+  width:100%;
+  border-radius:12px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#f8fafc,#ffffff);
+  border:1px solid #eef2f6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:180px;
+  position:relative;
+}
+.image-preview img{ width:100%; height:100%; object-fit:cover; display:block; }
+.image-actions{
+  position:absolute;
+  top:10px;
+  right:10px;
+  display:flex;
+  gap:8px;
+}
+.replace-checkbox{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--muted);
+  font-size:13px;
+}
+.form-note{ font-size:13px; color:var(--muted); margin-top:8px; }
+
+/* Ajuste para inputs grandes y textarea */
+textarea{ min-height:120px; resize:vertical; }
+.select-inline{ max-width:320px; }
+
+/* Estilos para mensaje de éxito/error en formularios */
+.form-message {
+  padding:10px 12px;
+  border-radius:8px;
+  margin-bottom:12px;
+  font-weight:600;
+}
+.form-error{ background:#fff2f2; color:#b91c1c; border:1px solid #f8d7da; }
+.form-success{ background:#f0fdf4; color:#065f46; border:1px solid #d1fae5; }
+
+/* Pequeños ajustes */
+label.required:after{ content:" *"; color:#e11d48; margin-left:4px; font-weight:700; font-size:14px; }
+
+/* Responsive */
+@media (max-width:980px){
+  .hero{ flex-direction:column; align-items:stretch; }
+  .card{ width:calc(50% - 12px); }
+  .hero .media{ width:100% }
+  .grid.cols-2{ grid-template-columns:1fr }
+}
+@media (max-width:640px){
+  header{ flex-direction:column; align-items:flex-start; gap:10px; }
+  .top-links{ flex-direction:column; align-items:flex-start; gap:8px; width:100% }
+  nav a{ padding:8px 6px; }
+  .card{ width:100%; }
+  .container{ padding:12px; }
+  .hero h1{ font-size:22px }
+  .hero{ padding:18px }
+}
+
+/* Accessibility and small tweaks */
+a{ color:var(--accent); }
+a:focus{ outline:3px solid rgba(255,107,53,0.16); outline-offset:3px; border-radius:6px; }
+
+/* Specific tweaks for existing components */
+.btn-favorite{ position:absolute; top:10px; right:10px; background:rgba(255,255,255,0.85); border-radius:8px; padding:8px; border:0; cursor:pointer; }
+.container-img{ position:relative; }
+
+/* Tiny utility */
+.text-muted{ color:var(--muted) }
+.small{ font-size:13px }
+
+/* Ajustes específicos para perfil/recetas: asegurar altura consistente de imágenes y alineado */
+.profile-card img, .card img { width:100%; height:140px; object-fit:cover; display:block; }
+.profile-card { display:flex; flex-direction:column; justify-content:space-between; }
+.profile-card .body { padding:12px; }
+
+/* Evitar que imágenes rompán el layout al no existir; mantener placeholder centrado */
+.image-preview img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* Ajuste para que las columnas del grid se mantengan iguales en responsivo */
+@media (max-width:980px){
+  .card{ width:calc(50% - 12px); }
+}
+@media (max-width:640px){
+  .card, .profile-card{ width:100%; }
+}
+
+/* Comentarios */
+.comments-section {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #eef2f6;
+}
+
+.comment-form {
+    margin-bottom: 24px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 1px solid #e6e9ef;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.comment {
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #eef2f6;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.comment p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Ajuste para imagen de receta */
+.recipe-detail .hero-img {
+    width: 100%;
+    height: 300px; /* altura más razonable */
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para búsqueda */
+.search-form {
+    background: var(--card);
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 24px;
+}
+
+.search-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+@media (max-width: 768px) {
+    .search-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.search-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #eef2f6;
+}
+
+.filter-tag {
+    padding: 4px 8px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* --- Correcciones para imagen de detalle de receta (evita que sea gigantesca) --- */
+/* Imagen hero de la receta: limitar ancho y altura, mantener proporción y centrar */
+.recipe-detail .hero-img,
+.hero-img {
+  display: block;
+  width: 100%;
+  max-width: 900px;    /* evita que la imagen sea más ancha que el contenido principal */
+  height: auto;        /* mantiene la proporción real de la imagen */
+  max-height: 420px;   /* límite razonable de altura; ajusta si quieres más o menos */
+  object-fit: cover;   /* rellena el area manteniendo recorte si es necesario */
+  border-radius: 12px;
+  margin: 0 auto 20px; /* centra la imagen y añade separación inferior */
+}
+
+/* Regla de seguridad: ninguna imagen debe romper el contenedor */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mantener comportamiento original de las cards (reglas específicas siguen aplicando) */
+.card img, .profile-card img {
+  width: 100%;
+  height: 140px; /* sigue siendo fijo para las miniaturas de tarjeta */
+  object-fit: cover;
+}
+
+/* Mejora para presentación de insignias y tarjetas de favoritos */
+.badge-list {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+.badge-item{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  background: linear-gradient(180deg,#fff,#fbfbfb);
+  border:1px solid #f1f5f9;
+  font-weight:700;
+  color:var(--text);
+  font-size:13px;
+  box-shadow: 0 4px 12px rgba(15,23,36,0.03);
+}
+.badge-icon{ font-size:16px; }
+.badge-label{ white-space:nowrap; }
+
+/* Favoritos */
+.favorites-grid{ display:flex; flex-wrap:wrap; gap:16px; margin-top:12px; }
+.favorite-card{ width:220px; border-radius:12px; overflow:hidden; background:var(--card); box-shadow:var(--shadow-sm); }
+.favorite-card img{ width:100%; height:130px; object-fit:cover; display:block; }
+.favorite-card h4{ margin:8px 0 4px; font-size:15px; }
+.favorite-card p{ margin:0; color:var(--muted); font-size:13px; }
+
+/* pequeño ajuste responsive */
+@media (max-width:640px){
+  .favorites-grid{ gap:12px; }
+  .favorite-card{ width:100%; }
+}
